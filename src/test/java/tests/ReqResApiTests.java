@@ -1,6 +1,5 @@
 package tests;
 
-import io.qameta.allure.Allure;
 import io.qameta.allure.Step;
 import io.restassured.RestAssured;
 import models.User;

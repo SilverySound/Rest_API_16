@@ -17,13 +17,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static specs.Specs.requestSpec;
 
-public class ReqResApiTests {
+public class ReqResApiTests extends TestBase {
 
-    @BeforeAll
-    public static void setUp() {
-        RestAssured.baseURI = "https://reqres.in";
-        RestAssured.basePath = "/api";
-    }
 
     @Test
     @Tag("restApi")

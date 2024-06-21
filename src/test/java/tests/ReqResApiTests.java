@@ -22,15 +22,15 @@ public class ReqResApiTests extends TestBase {
     @Tag("restApi")
     @DisplayName("Получение информации о пользователе")
     public void getUserTest() {
-        step("Создать запрос", () -> {
+        step("Given request specification", () -> {
             given().spec(Specs.requestSpec);
         });
 
-        step("Отправить GET-запрос на /users/1", () -> {
+        step("When GET request to /users/1 is sent", () -> {
             when().get("/users/1").then().log().all();
         });
 
-        step("Проверить ответ", () -> {
+        step("Then verify response status code is 200 and body has correct user data", () -> {
             requestSpec.then().spec(Specs.responseStatusCodeSpec(200))
                     .body("data.id", equalTo(1))
                     .body("data.email", equalTo("george.bluth@reqres.in"));

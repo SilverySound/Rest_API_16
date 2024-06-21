@@ -1,5 +1,6 @@
 package models;
 
+import io.qameta.allure.internal.shadowed.jackson.annotation.JsonIgnore;
 import io.qameta.allure.internal.shadowed.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -17,4 +18,6 @@ public class UserListResponse {
     private int total;
     private int total_pages;
     private List<User> data;
+    @JsonIgnore
+    private String support;
 }

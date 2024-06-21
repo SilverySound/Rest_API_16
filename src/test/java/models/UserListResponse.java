@@ -20,7 +20,7 @@ public class UserListResponse {
     private int total_pages;
     private List<User> data;
     @JsonIgnore
-    private Support support; // Изменено на объект Support
+    private Support support;
 }
 
 @Data

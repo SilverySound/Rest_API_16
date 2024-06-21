@@ -18,7 +18,6 @@ public class User {
     @JsonProperty("per_page")
     private int perPage;
 
-    // Другие поля, геттеры и сеттеры
 
     public User(String name, String job) {
         this.name = name;

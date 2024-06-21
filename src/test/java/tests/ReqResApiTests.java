@@ -1,7 +1,6 @@
 package tests;
 
 import io.qameta.allure.Step;
-import io.restassured.response.Response;
 import models.User;
 import models.UserResponse;
 import models.UserListResponse;
@@ -23,12 +22,10 @@ public class ReqResApiTests extends TestBase {
     @Tag("restApi")
     @DisplayName("Получение информации о пользователе")
     public void GetUserTest() {
-        step("Given request specification", () ->
-                given().spec(Specs.requestSpec)
-        );
-        step("When GET request to /users/1 is sent", () ->
-                when().get("/users/1").then().log().all()
-        );
+        given().spec(Specs.requestSpec);
+
+        when().get("/users/1").then().log().all();
+
         step("Then verify response status code is 200 and body has correct user data", () ->
                 requestSpec.then().spec(Specs.responseStatusCodeSpec(200))
                         .body("data.id", equalTo(1))

@@ -1,7 +1,7 @@
 package models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.qameta.allure.internal.shadowed.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -11,13 +11,14 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class User {
+    private int id;
     private String name;
     private String job;
 
     @JsonProperty("per_page")
     private int perPage;
 
-    // другие поля, геттеры и сеттеры
+    // Другие поля, геттеры и сеттеры
 
     public User(String name, String job) {
         this.name = name;

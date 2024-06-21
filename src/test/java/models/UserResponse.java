@@ -14,7 +14,7 @@ public class UserResponse {
 
     private String name;
     private String job;
-    @JsonProperty("id") // Добавьте аннотацию для поля "id"
+    @JsonProperty("id")
     private int id;
     private String createdAt;
 }

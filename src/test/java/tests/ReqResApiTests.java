@@ -21,16 +21,20 @@ public class ReqResApiTests extends TestBase {
     @Test
     @Tag("restApi")
     @DisplayName("Получение информации о пользователе")
-    public void GetUserTest() {
-        given().spec(Specs.requestSpec);
+    public void getUserTest() {
+        step("Создать запрос", () -> {
+            given().spec(Specs.requestSpec);
+        });
 
-        when().get("/users/1").then().log().all();
+        step("Отправить GET-запрос на /users/1", () -> {
+            when().get("/users/1").then().log().all();
+        });
 
-        step("Then verify response status code is 200 and body has correct user data", () ->
-                requestSpec.then().spec(Specs.responseStatusCodeSpec(200))
-                        .body("data.id", equalTo(1))
-                        .body("data.email", equalTo("george.bluth@reqres.in"))
-        );
+        step("Проверить ответ", () -> {
+            requestSpec.then().spec(Specs.responseStatusCodeSpec(200))
+                    .body("data.id", equalTo(1))
+                    .body("data.email", equalTo("george.bluth@reqres.in"));
+        });
     }
 
     @Test

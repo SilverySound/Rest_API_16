@@ -1,11 +1,11 @@
 package models;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import io.qameta.allure.internal.shadowed.jackson.annotation.JsonIgnore;
 import io.qameta.allure.internal.shadowed.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import models.User;
 
 import java.util.List;
 
@@ -20,6 +20,13 @@ public class UserListResponse {
     private int total_pages;
     private List<User> data;
     @JsonIgnore
-    @JsonProperty("support")
-    private String support;
+    private Support support; // Изменено на объект Support
+}
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+class Support {
+    private String url;
+    private String text;
 }
